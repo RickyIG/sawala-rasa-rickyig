@@ -30,11 +30,13 @@ import { PrismaClient } from "@/app/generated/prisma";
 import { notFound } from "next/navigation";
 import { CommentList } from "@/components/comment-list";
 
-type Props = {
-  params: { slug: string };
-};
+// type Props = {
+//   params: { slug: string };
+// };
 
-export default async function ArticlePage({ params }: Props) {
+type Params = Promise<{ slug: string }>;
+
+export default async function ArticlePage({ params }: { params: Params }) {
   const prisma = new PrismaClient();
   const { slug } = await params;
 
