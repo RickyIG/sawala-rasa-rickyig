@@ -26,6 +26,12 @@ const eslintConfig = [
       "prisma/dev.db-journal",
       ".vercel",
       "app/generated/prisma/*",
+      "app/*",
+      "components/*",
+      "lib/*",
+      "utils/*",
+      "public/*",
+      "prisma/*"
     ],
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',
