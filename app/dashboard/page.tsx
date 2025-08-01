@@ -182,7 +182,9 @@ export default function DashboardPage() {
         <Link href="/"><Button variant="outline">Home</Button></Link>
       </div>
 
-      <div className="mt-6 space-y-4">
+      <h1 className="text-xl font-semibold mt-6 mb-2">List Artikel</h1>
+
+      <div className="mt-4 space-y-4">
         {loading ? (
           <p className="text-gray-500 italic">Loading artikel...</p>
         ) : articles.length === 0 ? (

@@ -3,6 +3,9 @@
 import { useSession, signOut } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Header from '@/components/Header';
+import { Button } from '@/components/ui/button';
+import Image from "next/image";
 
 type Article = {
   id: string;
@@ -29,7 +32,10 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="max-w-2xl mx-auto py-10 space-y-6">
+    <main>
+      <Header />
+          <div className="max-w-2xl mx-auto py-10 space-y-6">
+      
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-3xl font-bold">Portal Artikel</h1>
       </div>
@@ -99,6 +105,25 @@ export default function Home() {
           </div>
         )}
       </div>
+    </div>
+          {/* Footer */}
+      <footer className="py-12 px-4 bg-card border-t">
+      <div className="container mx-auto text-center">
+        <div className="flex justify-center items-center mb-4">
+          <Image
+            src="/sawalarasa.png" // ganti dengan path gambarmu
+            alt="Logo SawalaRasa"
+            width={512}
+            height={216}
+            // className="h-16 w-16"
+          />
+        </div>
+        <p className="text-sm text-muted-foreground">
+          &copy; {new Date().getFullYear()} SawalaRasa by Ricky Indra Gunawan. Semua hak dilindungi.
+        </p>
+      </div>
+    </footer>
     </main>
+
   );
 }
