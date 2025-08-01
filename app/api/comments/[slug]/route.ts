@@ -23,13 +23,13 @@ import { authOptions } from "@/app/lib/auth";
 
 const prisma = new PrismaClient();
 
-// type Params = {
-//     slug: string;
-// };
+type Props = {
+  params: { slug: string };
+};
 
-export async function GET(req: NextRequest, context: { params: {slug: string} }) {
+export async function GET(req: NextRequest, { params }: Props) {
   try {
-    const { slug } = await context.params;
+    const { slug } = await params;
     const article = await prisma.articles.findUnique({
       where: { slug },
       select: {
