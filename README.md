@@ -1,10 +1,8 @@
 # Available Online
-# https://nextauthjs-fullstack-rickyig-fj7wovco9.vercel.app/
+# https://sawala-rasa-rickyig.vercel.app
 
-## Commit Tanggal 27/07/2025
-## Available Locally: 
-## https://github.com/RickyIG/nextauthjs-fullstack-rickyig/commit/636014555d746686bf91a9f3578cc63031133590
-## https://github.com/RickyIG/nextauthjs-fullstack-rickyig/tree/636014555d746686bf91a9f3578cc63031133590
+## Features
+## CRUD Artikel + CRUD Comments
 
 ## Cara penggunaan:
 
