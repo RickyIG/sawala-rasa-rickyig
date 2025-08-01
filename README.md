@@ -2,7 +2,8 @@
 # https://sawala-rasa-rickyig.vercel.app
 
 ## Features
-## CRUD Artikel + CRUD Comments
+- CRUD Artikel + CRUD Comments
+- Simple, modern theme website app
 
 ## Account: Bisa diregister menggunakan email sendiri yang valid
 
