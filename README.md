@@ -4,8 +4,7 @@
 ## Features
 ## CRUD Artikel + CRUD Comments
 
-## Account
-## Bisa diregister menggunakan email sendiri yang valid
+## Account: Bisa diregister menggunakan email sendiri yang valid
 
 ## Cara penggunaan:
 
