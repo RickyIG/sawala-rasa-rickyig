@@ -15,15 +15,16 @@ datasource db {
 }
 
 model users {
-  id        String   @id @default(cuid())
-  name      String
-  email     String   @unique
-  password  String
+  id         String     @id @default(cuid())
+  name       String
+  email      String     @unique
+  password   String
   verifiedAt DateTime?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  otps      otps[]
-  articles  articles[]
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+  otps       otps[]
+  articles   articles[]
+  comments   comment[]  
 }
 
 model otps {
@@ -37,11 +38,24 @@ model otps {
 }
 
 model articles {
-  id        String   @id @default(cuid())
-  title     String
-  content   String
-  slug      String   @unique
-  author    users    @relation(fields: [authorId], references: [id])
-  authorId  String
-  createdAt DateTime @default(now())
+  id         String     @id @default(cuid())
+  title      String
+  content    String
+  slug       String     @unique
+  author     users      @relation(fields: [authorId], references: [id])
+  authorId   String
+  createdAt  DateTime   @default(now())
+  comments   comment[]  
+}
+
+model comment {
+  id         String     @id @default(cuid())
+  content    String
+  authorId   String
+  articleId  String
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+
+  author     users      @relation(fields: [authorId], references: [id])
+  article    articles   @relation(fields: [articleId], references: [id])
 }

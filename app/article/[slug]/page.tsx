@@ -28,14 +28,14 @@
 
 import { PrismaClient } from "@/app/generated/prisma";
 import { notFound } from "next/navigation";
-import type { Metadata, ResolvingMetadata } from 'next';
+import { CommentList } from "@/components/comment-list";
 
-type Params = Promise<{ slug: string }>;
+type Props = {
+  params: { slug: string };
+};
 
-// Bungkus handler utama agar sesuai dengan ekspektasi kamu (params sebagai Promise)
-export default async function ArticlePage({ params }: { params: Params }) {
+export default async function ArticlePage({ params }: Props) {
   const prisma = new PrismaClient();
-
   const { slug } = await params;
 
   const article = await prisma.articles.findUnique({
@@ -49,7 +49,22 @@ export default async function ArticlePage({ params }: { params: Params }) {
     <main className="max-w-2xl mx-auto py-10 space-y-4">
       <h1 className="text-3xl font-bold">{article.title}</h1>
       <p className="text-muted-foreground">by {article.author.name}</p>
-      <div className="prose">{article.content}</div>
+<p className="text-muted-foreground text-sm">
+  Dipublikasikan pada{" "}
+  {new Date(article.createdAt).toLocaleString("id-ID", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  })}{" "}
+  WIB
+</p>
+
+      <div className="prose prose-neutral dark:prose-invert max-w-none">{article.content}</div>
+      <hr className="my-6" />
+      <CommentList slug={slug} />
     </main>
   );
 }

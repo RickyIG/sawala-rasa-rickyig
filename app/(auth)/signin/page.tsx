@@ -27,7 +27,7 @@ export default function Page(){
     });
 
     if (res?.error) {
-      console.log("Login error:", res.error);
+      // console.log("Login error:", res.error);
       setAlert({
         type: "error",
         message: res.error,
