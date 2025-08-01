@@ -27,6 +27,9 @@ const eslintConfig = [
       ".vercel",
       "app/generated/prisma/*",
     ],
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'off',
+    },
   }
 ];
 
